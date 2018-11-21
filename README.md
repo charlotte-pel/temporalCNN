@@ -1,1 +1,1 @@
-# cnn_sits
+# Temporal Convolutional Neural Network
