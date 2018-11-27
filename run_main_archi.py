@@ -20,8 +20,7 @@ def main(sits_path, res_path, feature, noarchi, norun):
 	#---- Parameters to set
 	n_channels = 3 #-- NIR, R, G
 	val_rate = 0.05
-	nbRuns = 5
-	
+
 	#---- Evaluated metrics
 	eval_label = ['OA', 'train_loss', 'train_time', 'test_time']	
 	

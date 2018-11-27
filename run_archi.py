@@ -20,7 +20,6 @@ def main(sits_path, res_path, feature, noarchi, norun):
 	#---- Parameters to set
 	n_channels = 3 #-- NIR, R, G
 	val_rate = 0.05
-	nbRuns = 5
 	
 	#---- Evaluated metrics
 	eval_label = ['OA', 'train_loss', 'train_time', 'test_time']	
@@ -106,7 +105,7 @@ if __name__ == "__main__":
 			print('      '+sys.argv[0]+' [options]')
 			print("     Help: ", prog, " --help")
 			print("       or: ", prog, " -h")
-			print("example 1 : python %s --sits_path path/to/sits_datasets --res_path path/to/results --sampling 5-days" %sys.argv[0])
+			print("example 1 : python %s --sits_path path/to/sits_datasets --res_path path/to/results " %sys.argv[0])
 			sys.exit(-1)
 		else:
 			parser = argparse.ArgumentParser(description='Running deep learning architectures on SITS datasets')
@@ -120,7 +119,7 @@ if __name__ == "__main__":
 								help='used feature vector',
 								default="SB")
 			parser.add_argument('--noarchi', dest='noarchi', type=int,
-								help='archi to run', default=0)
+								help='archi to run', default=2)
 			parser.add_argument('--norun', dest='norun', type=int,
 								help='run number', default=0)
 			args = parser.parse_args()
