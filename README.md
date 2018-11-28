@@ -1,8 +1,9 @@
 # Temporal Convolutional Neural Network
 Training temporal Convolution Neural Netoworks (CNNs) on satelitte image time series.  
 This code is supporting a paper submitted in IEEE Transactions on Geoscience and Remote Sensing (under review):  
-https://arxiv.org/abs/1811.101660 - Temporal Convolutional Neural Network for the Classification of Satellite Image Time Series
+https://arxiv.org/abs/1811.10166 - Temporal Convolutional Neural Network for the Classification of Satellite Image Time Series
 
+More information about our research at https://sites.google.com/site/charpelletier, http://www.francois-petitjean.com/Research/, and http://i.giwebb.com/
 
 ## Prerequisites
 This code relies Pyhton 3.6 (and it should work on Python 2.7) and Keras with Tensorflow backend.
@@ -30,3 +31,5 @@ Thoses files have no header, and contain one observation per row having the foll
 It will require to change functions contained in `readingsits.py`.
 - Validation rate: `val_rate = 0.05` (`run_archi.py`, L22).
 - Network hyperparameters are mainly defined in `architecture_features.py` file.
+
+
