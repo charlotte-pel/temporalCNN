@@ -6,7 +6,7 @@ https://arxiv.org/abs/1811.10166 - Temporal Convolutional Neural Network for the
 More information about our research at https://sites.google.com/site/charpelletier, http://www.francois-petitjean.com/Research/, and http://i.giwebb.com/
 
 ## Prerequisites
-This code relies Pyhton 3.6 (and it should work on Python 2.7) and Keras with Tensorflow backend.
+This code relies on Pyhton 3.6 (and should work on Python 2.7) and Keras with Tensorflow backend.
 
 
 ## Examples
