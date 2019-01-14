@@ -1,6 +1,6 @@
 # Temporal Convolutional Neural Network
 Training temporal Convolution Neural Netoworks (CNNs) on satelitte image time series.  
-This code is supporting a paper submitted in IEEE Transactions on Geoscience and Remote Sensing (under review):  
+This code is supporting a paper submitted to IEEE Transactions on Geoscience and Remote Sensing (under review):  
 https://arxiv.org/abs/1811.10166 - Temporal Convolutional Neural Network for the Classification of Satellite Image Time Series
 
 More information about our research at https://sites.google.com/site/charpelletier, http://www.francois-petitjean.com/Research/, and http://i.giwebb.com/
