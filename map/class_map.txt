@@ -1,0 +1,14 @@
+value,class,colour
+1,wheat,#ffff00
+2,barley,#ffffdc
+3,rapeseed,#f18ad9
+4,corn,#ffa500
+5,soy,#ff3333
+6,sunflower,#820082
+7,sorghum,#783214
+8,pea,#c864c8
+9,grassland,#b4ffb4
+10,deciduous,#008c00
+11,conifer,#005000
+12,water,#000096
+13,urban,#ff6464
