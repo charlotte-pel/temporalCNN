@@ -34,7 +34,8 @@ The architecture will run by training the network on `train_dataset.csv` file an
 Please note that both `train_dataset.csv` and `test_dataset.csv` files are a subsample of the data used in the paper: original data cannot be distributed.
 
 Thoses files have no header, and contain one observation per row having the following format:
-`[class,date1.NIR,date1.R,date1.G,date2.NIR,...,date149.G]`
+`[class,polygonID,date1.NIR,date1.R,date1.G,date2.NIR,...,date149.G]`,
+where `class` corresponds to the class label and `polygonID` to a unique polygon identifier for each plot of land.
 
 ### Changing network parameters
 
