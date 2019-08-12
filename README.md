@@ -30,7 +30,7 @@ This code relies on Pyhton 3.6 (and should work on Python 2.7) and Keras with Te
 python run_archi.py --sits_path ./ --res_path path/to/results --noarchi 0
 ```
 
-The architecture will run by training the network on `train_dataset.csv` file and by testing it on `test_dataset.csv` file.  
+The architecture (`run_main_archi.py`) will run by training the network on `example/train_dataset.csv` file and by testing it on `example/test_dataset.csv` file.  
 Please note that both `train_dataset.csv` and `test_dataset.csv` files are a subsample of the data used in the paper: original data cannot be distributed.
 
 Thoses files have no header, and contain one observation per row having the following format:
@@ -44,6 +44,17 @@ It will require to change functions contained in `readingsits.py`.
 - Validation rate: `val_rate = 0.05` (`run_archi.py`, L22).
 - Network hyperparameters are mainly defined in `architecture_features.py` file.
 
+### Getting predictions for a csv file or a tiff image
+
+```
+python write_output.py --model_path path/to/model --test_file path/to/pred.csv --result_file path/to/results/result.csv --proba
+```
+
+`test_file` is either a csv file or a tiff image. 
+If the `test_file` is a tiff file and `--proba` activated, two tiff images are created: 1) a land cover map, and 2) a tiff image composed of `n_classes` bands that contains the proabbility outputed by the Softmax layer for each class.
+The code has been designed to work on small tiff file. Predictions on a big tiff file would require to set up carefully `size_areaX` and `size_areaY` variables (`L86-87` in `write_output.py`).
+
+Please note that the `pred.csv` file should have the same format than `example/train_dataset.csv`, including the `class` field that could be set to `-1`.
 
 ### Maps
 

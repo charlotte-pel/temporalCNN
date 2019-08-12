@@ -105,7 +105,7 @@ def main(sits_path, res_path, feature, noarchi, norun):
 #-----------------------------------------------------------------------		
 if __name__ == "__main__":
 	try:
-			main('./', './', 'SB', 2, 0)
+			main('./example', './example/res', 'SB', 2, 0)
 			print("0")
 	except(RuntimeError):
 		print >> sys.stderr
