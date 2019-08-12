@@ -32,6 +32,18 @@ def main(sits_path, res_path, feature, noarchi, norun):
 	test_file = sits_path + '/' + test_str + '.csv'
 	print("train_file: ", train_file)
 	print("test_file: ", test_file)
+	
+	#---- output files			
+	res_path = res_path + '/Archi' + str(noarchi) + '/'
+	if not os.path.exists(res_path):
+		os.makedirs(res_path)
+	print("noarchi: ", noarchi)
+	str_result = feature + '-' + train_str + '-noarchi' + str(noarchi) + '-norun' + str(norun) 
+	res_file = res_path + '/resultOA-' + str_result + '.csv'
+	res_mat = np.zeros((len(eval_label),1))
+	traintest_loss_file = res_path + '/trainingHistory-' + str_result + '.csv'
+	conf_file = res_path + '/confMatrix-' + str_result + '.csv'
+	out_model_file = res_path + '/bestmodel-' + str_result + '.h5'
 
 	#---- Downloading
 	X_train, polygon_ids_train, y_train = readSITSData(train_file)
@@ -50,7 +62,13 @@ def main(sits_path, res_path, feature, noarchi, norun):
 	X_test = addingfeat_reshape_data(X_test, feature, n_channels)		
 		
 	#---- Normalizing the data per band
-	min_per, max_per = computingMinMax(X_train)
+	minMaxVal_file = '.'.join(out_model_file.split('.')[0:-1])
+	minMaxVal_file = minMaxVal_file + '_minMax.txt'
+	if not os.path.exists(minMaxVal_file): 
+		min_per, max_per = computingMinMax(X_train)
+		save_minMaxVal(minMaxVal_file, min_per, max_per)
+	else:
+		min_per, max_per = read_minMaxVal(minMaxVal_file)
 	X_train =  normalizingData(X_train, min_per, max_per)
 	X_test =  normalizingData(X_test, min_per, max_per)
 	
@@ -60,21 +78,8 @@ def main(sits_path, res_path, feature, noarchi, norun):
 		#--- Computing the one-hot encoding (recomputing it for train)
 		y_train_one_hot = to_categorical(y_train, n_classes)
 		y_val_one_hot = to_categorical(y_val, n_classes)
-	
-	#---- output files			
-	res_path = res_path + '/Archi' + str(noarchi) + '/'
-	if not os.path.exists(res_path):
-		os.makedirs(res_path)
-	print("noarchi: ", noarchi)
-	str_result = feature + '-' + train_str + '-noarchi' + str(noarchi) + '-norun' + str(norun) 
-	res_file = res_path + '/resultOA-' + str_result + '.csv'
-	res_mat = np.zeros((len(eval_label),1))
-		
-	traintest_loss_file = res_path + '/trainingHistory-' + str_result + '.csv'
-	conf_file = res_path + '/confMatrix-' + str_result + '.csv'
-	
+
 	if not os.path.isfile(res_file):
-		out_model_file = res_path + '/bestmodel-' + str_result + '.h5'
 		if val_rate==0:
 			res_mat[0,norun], res_mat[1,norun], model, model_hist, res_mat[2,norun], res_mat[3,norun] = \
 				runArchi(noarchi, X_train, y_train_one_hot, X_test, y_test_one_hot, out_model_file)

@@ -115,4 +115,21 @@ def save_confusion_matrix(C, class_name, conf_file):
 	f.write(line)
 	f.close()
 
+#-----------------------------------------------------------------------
+def write_predictions_csv(test_file, p_test):
+	"""
+		 Writing the predictions p_test in test_file
+		 INPUT:
+			-test_file: csv file where to store the results
+			-p_test: predictions 
+				(either predicted class 
+					or class probability distribution outputing by the Softmax layer)
+	"""
+	print("len(p_test.shape)", len(p_test.shape))
+	if  len(p_test.shape)==1: #-- saving class only [integer]
+		np.savetxt(test_file, p_test.astype(int), delimiter=',', fmt='%i')
+	else: #saving proba [float]
+		np.savetxt(test_file, p_test, delimiter=',', fmt='%1.6f')
+		
+
 #EOF

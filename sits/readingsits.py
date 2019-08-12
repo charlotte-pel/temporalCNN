@@ -12,6 +12,8 @@ import math
 import random
 import itertools
 
+import csv
+
 #-----------------------------------------------------------------------
 #---------------------- SATELLITE MODULE
 #-----------------------------------------------------------------------
@@ -145,6 +147,25 @@ def computingMinMax(X, per=2):
 	min_per = np.percentile(X, per, axis=(0,1))
 	max_per = np.percentile(X, 100-per, axis=(0,1))
 	return min_per, max_per
+
+#-----------------------------------------------------------------------
+def read_minMaxVal(minmax_file):	
+	with open(minmax_file, 'r') as f:
+		reader = csv.reader(f, delimiter=',')
+		min_per = next(reader)
+		max_per = next(reader)
+	min_per = [float(k) for k in min_per]
+	min_per = np.array(min_per)
+	max_per = [float(k) for k in max_per]
+	max_per = np.array(max_per)
+	return min_per, max_per
+
+#-----------------------------------------------------------------------
+def save_minMaxVal(minmax_file, min_per, max_per):	
+	with open(minmax_file, 'w') as f:
+		writer = csv.writer(f, delimiter=',')
+		writer.writerow(min_per)
+		writer.writerow(max_per)
 
 #-----------------------------------------------------------------------
 def normalizingData(X, min_per, max_per):
