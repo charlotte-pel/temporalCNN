@@ -151,8 +151,7 @@ def trainTestModel(model, X_train, Y_train_onehot, X_test, Y_test_onehot, out_mo
 	decay = train_params.setdefault("decay", 0.0)
 
 	#---- optimizer
-	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, 
-			epsilon=None, decay=decay)
+	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, decay=decay)
 	model.compile(optimizer = opt, loss = "categorical_crossentropy",
 			metrics = ["accuracy"])
 	
@@ -190,8 +189,7 @@ def trainTestModel_EarlyAbandon(model, X_train, Y_train_onehot, X_test, Y_test_o
 	decay = train_params.setdefault("decay", 0.0)
 
 	#---- optimizer
-	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, 
-			epsilon=None, decay=decay)
+	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, decay=decay)
 	model.compile(optimizer = opt, loss = "categorical_crossentropy",
 			metrics = ["accuracy"])
 	
@@ -230,8 +228,7 @@ def trainValTestModel(model, X_train, Y_train_onehot, X_val, Y_val_onehot, X_tes
 	decay = train_params.setdefault("decay", 0.0)
 
 	#---- optimizer
-	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, 
-			epsilon=None, decay=decay)
+	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, decay=decay)
 	model.compile(optimizer = opt, loss = "categorical_crossentropy",
 			metrics = ["accuracy"])
 	
@@ -269,8 +266,7 @@ def trainValTestModel_EarlyAbandon(model, X_train, Y_train_onehot, X_val, Y_val_
 	decay = train_params.setdefault("decay", 0.0)
 
 	#---- optimizer
-	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, 
-			epsilon=None, decay=decay)
+	opt = optimizers.Adam(lr=lr, beta_1=beta_1, beta_2=beta_2, decay=decay)
 	model.compile(optimizer = opt, loss = "categorical_crossentropy",
 			metrics = ["accuracy"])
 	
