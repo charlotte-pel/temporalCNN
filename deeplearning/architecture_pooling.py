@@ -2,7 +2,7 @@
 
 """ 
 	Defining keras architecture. 
-	C. Are local and global temporal pooling layers important?
+	4.3. Are local and global temporal pooling layers important?
 """
 
 

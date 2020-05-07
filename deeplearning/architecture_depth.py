@@ -2,7 +2,8 @@
 
 """ 
 	Defining keras architecture.
-	D. How deep should the model be?
+	4.4. How big and deep model for our data?
+	4.4.2. Depth influence
 """
 
 

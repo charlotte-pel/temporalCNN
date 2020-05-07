@@ -2,7 +2,8 @@
 
 """ 
 	Defining keras architecture.
-	B. Benefitting from both spectral and temporal dimensions.
+	4.1. Benefiting from both spectral and temporal dimensions.
+	4.2. Influence of the filter size
 """
 
 import sys, os

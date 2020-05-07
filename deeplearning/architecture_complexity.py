@@ -2,7 +2,8 @@
 
 """ 
 	Defining keras architecture.
-	A. Choosing the bias-variance trade-off for our quantity of data.
+	4.4. How big and deep model for our data?
+	4.4.1. Width influence or the bias-variance trade-off
 """
 
 import sys, os

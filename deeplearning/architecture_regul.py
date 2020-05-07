@@ -2,7 +2,7 @@
 
 """ 
 	Defining keras architecture.
-	E. How to controll overfitting problem?
+	4.5. How to control overfitting?
 """
 
 

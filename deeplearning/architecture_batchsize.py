@@ -2,7 +2,7 @@
 
 """ 
 	Defining keras architecture.
-	F. What values are used for the batch size?
+	4.6. What values are used for the batch size?
 """
 
 import sys, os
